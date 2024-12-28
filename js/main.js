@@ -1,23 +1,19 @@
-
-function playAudio (the_audio) {
+function playAudio(the_audio) {
     the_audio.play();
     the_audio.currentTime = 0;
 }
-/* function stopAudio (the_audio) {
-    the_audio.pause();
-    the_audio.currentTime = 0;
-} */
 
-function ui_active_sign (element) {
+function ui_active_sign(element) {
     element.style = `filter: drop-shadow(0px 3px 10px white); transition: 0.1s;`;
 }
-function ui_deactivate_sign (element) {
+
+function ui_deactivate_sign(element) {
     element.style = `filter: drop-shadow(0px 0px 0px transparent); transition: 0.5s;`;
 }
 
 let body = document.body;
-function Drum () {
-    
+
+function Drum() {
     let kick = document.querySelector('.kick');
     let hi_hat = document.querySelector('.hi-hat');
     let crach_01 = document.querySelector('.crach-01');
@@ -46,7 +42,30 @@ function Drum () {
     let Ride_audio = document.querySelector('#Ride_audio');
     let RideCup_audio = document.querySelector('#RideCup_audio');
 
+    // Add click event listeners
+    const elements = [
+        { element: kick, audio: kick_audio },
+        { element: hi_hat, audio: hi_hat_audio },
+        { element: crach_01, audio: Crash_audio },
+        { element: crash_02, audio: Crash2_audio },
+        { element: china, audio: China_audio },
+        { element: ride, audio: Ride_audio },
+        { element: snare, audio: Snare_audio },
+        { element: stick, audio: Rimshot_audio },
+        { element: tom_01, audio: Tom1_audio },
+        { element: tom_02, audio: Tom2_audio },
+        { element: tom_03, audio: FloorTom_audio }
+    ];
 
+    elements.forEach(({ element, audio }) => {
+        element.addEventListener('click', () => {
+            ui_active_sign(element);
+            playAudio(audio);
+            setTimeout(() => {
+                ui_deactivate_sign(element);
+            }, 100);
+        });
+    });
 
     body.addEventListener('keydown', (e) => {
         if (e.keyCode == 87) { // KICK => D
@@ -90,7 +109,7 @@ function Drum () {
             playAudio(RideCup_audio);
             ui_active_sign(ride);
         }
-        
+
         //___________T A M B O U R S____________//
         if (e.keyCode == 67) { //SNARE => F
             playAudio(Snare_audio);
@@ -112,8 +131,7 @@ function Drum () {
             playAudio(FloorTom_audio);
             ui_active_sign(tom_03);
         }
-    })
-
+    });
 
     body.addEventListener('keyup', (e) => {
         if (e.keyCode == 87) { // KICK => D
@@ -126,49 +144,44 @@ function Drum () {
             ui_deactivate_sign(hi_hat);
         }
         if (e.keyCode == 73) { // CRASH 01 => I
-            ui_deactivate_sign(crach_01);//
+            ui_deactivate_sign(crach_01);
         }
         if (e.keyCode == 79) { // CHINA => O
-            ui_deactivate_sign(china);//
+            ui_deactivate_sign(china);
         }
         if (e.keyCode == 190) { // RIDE => ;
-            ui_deactivate_sign(ride);//
+            ui_deactivate_sign(ride);
         }
         if (e.keyCode == 191) { // RIDE => :
-            ui_deactivate_sign(ride);//
+            ui_deactivate_sign(ride);
         }
         if (e.keyCode == 85) { // OPEN HI-HAT => U
-            ui_deactivate_sign(crash_02);//
+            ui_deactivate_sign(crash_02);
         }
         if (e.keyCode == 67) { // SNARE => F
-            ui_deactivate_sign(snare);//
+            ui_deactivate_sign(snare);
         }
         if (e.keyCode == 71) { //  RIMSHOT => G
-            ui_deactivate_sign(stick);//
+            ui_deactivate_sign(stick);
         }
         if (e.keyCode == 86) { //  TOM 1 => V
-            ui_deactivate_sign(tom_01);//
+            ui_deactivate_sign(tom_01);
         }
         if (e.keyCode == 66) { //  TOM 2 => B
-            ui_deactivate_sign(tom_02);//
+            ui_deactivate_sign(tom_02);
         }
         if (e.keyCode == 78) { //  TOM 2 => N
-            ui_deactivate_sign(tom_03);//
+            ui_deactivate_sign(tom_03);
         }
-    })
-    
-
+    });
 }
 
-
-function test () {
+function test() {
     body.addEventListener('keydown', (e) => {
         console.log(e.key);
         console.log(e.keyCode);
     });
 }
-test()
-
+test();
 
 setTimeout(Drum);
-// setInterval(test, 500);
