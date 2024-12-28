@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drum-body {
+    position: relative;
+    overflow: hidden;
+    margin: 90px 0 0 0;
+    background: url('../Images/Drum\ 01.jpeg') no-repeat;
+    background-size: cover;
+    width: 1050px;
+    height: 700px;
+    border-radius: 26px;
+    box-shadow: 0px 2px 20px 8px #151515;
+}
+
+.hi-hat {
+    position: absolute;
+    width: 232px;
+    top: 436px;
+    z-index: 5000;
+}
+.crach-01 {
+    position: absolute;
+    width: 334px;
+    top: 69px;
+    left: 17px;
+    z-index: 5000;
+    transform: skew(-12deg, 8deg);
+}
+.crach-02 {
+    position: absolute;
+    width: 333px;
+    top: 9px;
+    left: 649px;
+    z-index: 5000;
+    transform: skew(2deg, -1deg);
+}
+.china {
+    position: absolute;
+    width: 146px;
+    right: 0;
+    bottom: -24px;
+    z-index: 5000;
+}
+.ride {
+    position: absolute;
+    width: 318px;
+    right: 8px;
+    bottom: 159px;
+    z-index: 1000;
+}
+.snare {
+    position: absolute;
+    width: 232px;
+    left: 293px;
+    bottom: 40px;
+    z-index: 1000;
+}
+.stick {
+    position: absolute;
+    width: 179px;
+    left: 305px;
+    bottom: 75px;
+    z-index: 5000;
+}
+.tom-01 {
+    position: absolute;
+    width: 167px;
+    left: 330px;
+    bottom: 285px;
+    z-index: 1000;
+}
+.tom-02 {
+    position: absolute;
+    width: 199px;
+    left: 496px;
+    bottom: 292px;
+    z-index: 1000;
+}
+.tom-03 {
+    position: absolute;
+    width: 261px;
+    left: 605px;
+    bottom: 22px;
+    z-index: 500;
+}
+.kick {
+    position: absolute;
+    width: 58px;
+    left: 506px;
+    bottom: 67px;
+    z-index: 500;
+}
+
+/* __I N F O__ */
+.info {
+    width: auto;
+    height: auto;
+    padding: 2% 5%;
+    background: #242424;
+    border-radius: 5px;
+    margin: 4% 2%;
+    box-shadow: inset -2px 4px 14px 0 black;
+}
+.column {
+    display: flex;
+    width: auto;
+}
+.info-item {
+    color: white;
+    margin: 2% 32px;
+    display: flex;
+    border-bottom: 1px solid #363636;
+}
+.label {
+    width: 100px;
+}
+
+/* ________________________A U D I O________________________ */
+.audio-section {
+    display: none;
+    margin: 20px;
+    width: 500px;
+    height: auto;
+    background: white;
+    padding: 2%;
+    border-radius: 2% / 14%;
+}
+/* ____________________A N I M A T I O N____________________ */
+@keyframes crach_01_movement {
+    0% {
+        transform: skew(-12deg, 9deg);
+    } 50% {
+        transform: skew(-12deg, 12deg);
+    } 100% {
+        transform: skew(-12deg, 9deg);
+    }
+}
+@keyframes crach_02_movement {
+    0% {
+        transform: skew(2deg, -4deg);
+    } 50% {
+        transform: skew(2deg, -1deg);
+    } 60% {
+        transform: skew(2deg, -4deg);
+    } 70% {
+        transform: skew(2deg, -1deg);
+    } 100% {
+        transform: skew(2deg, -4deg);
+
+    }
+}
+@keyframes ride {
+    0% {
+        transform: skew(0deg, -3deg);
+    } 50% {
+        transform: skew(0deg, 2deg);
+    } 100% {
+        transform: skew(0deg, -3deg);
+    }
+
+}
+
+/* ___F O O T E R___ */
+footer {
+    width: 100%;
+    padding: 2%;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+footer h5 {
+    font-weight: lighter;
+    font-family: cursive;
+}
+footer h5 span {
+    font-size: 10px;
+    border: 2px solid white;
+    padding: 3px 7px;
+    border-radius: 98px;
+}
